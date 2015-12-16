@@ -21,9 +21,9 @@ def main():
 		print "Web server running on port %s" % port
 		server.serve_forever()
 
-	except: KeyboardInterrupt
+	except KeyboardInterrupt:
 		print "^C entered, stopping web server..."
 		server.socket.close()
 
-if __name__ == '__main__'
+if __name__ == '__main__':
 	main()
