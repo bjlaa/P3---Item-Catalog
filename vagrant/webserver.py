@@ -23,7 +23,16 @@ class webserverhandler(BaseHTTPRequestHandler):
 				output = ""
 				output += "<html><body>&#161Hola! <a href='/hello'>Back to hello</a></body></html>"
 				output += "<form method='POST' enctype='multipart/form-data' action='hello'> <h2>What would you like me to say?</h2><input name='message'type='text' ><input type='submit' value='Submit'></form>"
+				output += "</body></html>"
 				self.wfile.write(output)
+
+			if self.path.endswith("/restaurants"):
+				self.send_response(200)
+				self.send_header('content-type', 'text/html')
+				self.end_headers()
+
+				output = ""
+				output
 
 		except IOError:
 			self.send_error(404, "File Not Found %s" % self.path)
