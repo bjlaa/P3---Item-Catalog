@@ -1,4 +1,5 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer 
+import cgi
 
 class webserverhandler(BaseHTTPRequestHandler):
 	def do_GET(self):
