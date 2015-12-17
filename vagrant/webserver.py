@@ -25,6 +25,17 @@ class webserverhandler(BaseHTTPRequestHandler):
 		except IOError:
 			self.send_error(404, "File Not Found %s" % self.path)
 
+	def do_POST(self):
+		try:
+			self.send_response(301)
+			self.end_headers()
+
+			ctype, pdict = cgi.parse_header(self.headers.getheader('content-type'))
+			if ctype == 'multipart/form-data':
+				fields=cgi.parse_multipart(self.rfile, pdict)
+				messageContent = fields.get('message')
+		except:
+
 def main():
 	try:
 		port = 8080
