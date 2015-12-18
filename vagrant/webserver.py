@@ -37,12 +37,25 @@ class webserverhandler(BaseHTTPRequestHandler):
 				self.wfile.write(output)
 
 			if self.path.endswith("/restaurants"):
+				restaurants = session.query(Restaurant).all()
+				print restaurants
 				self.send_response(200)
 				self.send_header('content-type', 'text/html')
 				self.end_headers()
 
 				output = ""
-				output
+				output += "<body><html>"
+
+				for restaurant in restaurants:
+					output += "</br>"
+					output += restaurant.name
+					output += "</br>"
+					output += "<a href='#'>Edit</a>"
+					output += "</br>"
+					output += "<a href='#'>Delete</a>"
+
+				output += "</body></html>"
+				self.wfile.write(output)
 
 		except IOError:
 			self.send_error(404, "File Not Found %s" % self.path)
