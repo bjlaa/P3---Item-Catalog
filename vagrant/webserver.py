@@ -1,5 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer 
 import cgi
+
+##Import CRUD Operations from Lesson 1 ##
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
