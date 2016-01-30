@@ -7,5 +7,32 @@
 <body>
 	<h1>My Restaurant App</h1>
 	
+	<a href = "#">Create New Restaurant</a>
+
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+	      	{% if messages %}
+	          
+		        <ul>
+			        {% for message in messages %}
+			            <li> <strong> {{ message }} </strong> </li>
+			        {% endfor %}
+		        </ul>
+	        {% endif %}
+	    {% endwith %}
+	</div>
+
+	{% for i in restaurants %}
+	    <div class = 'nameRestaurant'>
+			<span class = 'name'>
+				<p>{{i.name}}</p>
+			</span>
+		</div>
+
+		<div class = "editdeletepane">
+			<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, menu_id=i.id)}}'>Edit</a>
+			<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id)}}'>Delete</a>
+		</div>
+	{% endfor %}
 </body>
 </html>
