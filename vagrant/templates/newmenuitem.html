@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>New Menu Item</h1>
-	<form action="#" method="POST">
+	<form action="{{url_for('newMenuItem')}}" method="POST">
 		<p>Name:</p>
 		<input type='text' size='30' name='name'>
 		</br>
@@ -19,6 +19,6 @@
 
 		<input type='submit' value='Create'>		
 	</form>
-	<a href="#">CANCEL</a>
+	<a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">CANCEL</a>
 </body>
 </html>
