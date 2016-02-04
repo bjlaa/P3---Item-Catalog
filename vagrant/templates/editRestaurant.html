@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="http://localhost:5000/restaurants/">
+	<link rel="stylesheet" href="/static/styles.css">
 	<meta charset="UTF-8">
 	<title>Edit Restaurant</title>
 </head>
 <body>
 	<h1>Edit Restaurant</h1>
 	<form action="{{url_for('editRestaurant', restaurant_id = restaurant_id)}}" method="POST">
-		<input type="text" method="POST" name="name" placeholder="{{editedRestaurant.name}}">
-		<input type="submit" value="Edit">
+		<input class="form" type="text" method="POST" name="name" placeholder="{{editedRestaurant.name}}">
+		<input class="submitButton" type="submit" value="Edit">
 	</form>
 	<a href="{{url_for('showRestaurant')}}">CANCEL</a>
 </body>
